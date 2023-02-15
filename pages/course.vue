@@ -14,7 +14,7 @@ const { chapters } = useCourse()
 
   <div class="flex flex-row justify-center flex-grow">
     <div
-      class="prose mr-4 p-8 bg-white rounded-md min-w-[20ch] max-w-[30ch] flex flex-col"
+      class="prose mr-4 p-8 bg-blue-500 rounded-md min-w-[20ch] max-w-[30ch] flex flex-col"
     >
       <h3>Chapters</h3>
       <div
