@@ -4,7 +4,7 @@ const { chapters } = useCourse()
 
 <template>
   <div
-    class="p-12 bg-gray-100 w-full h-full min-h-screen flex flex-col items-center"
+    class="p-12 bg-blue-500 w-full h-full min-h-screen flex flex-col items-center"
   >
     <div class="prose mb-12">
       <h1>
