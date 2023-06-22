@@ -1,5 +1,16 @@
 <script setup>
 const { chapters } = useCourse()
+
+const resetError = async (error) => {
+  // await navigateTo(
+  //   '/course/chapter/1-chapter-1/lesson/1-introduction-to-typescript-with-vue-js-3'
+  // )
+  // error.value = null
+  throw createError({
+    fatal: true,
+    message: 'Fatal error',
+  })
+}
 </script>
 
 <template>
@@ -40,7 +51,21 @@ const { chapters } = useCourse()
     </div>
 
     <div class="prose p-12 bg-white rounded-md w-[65ch]">
-      <NuxtPage />
+      <NuxtErrorBoundary>
+        <NuxtPage />
+        <template #error="{ error }">
+          <p>Oh no, something went wrong with lesson!</p>
+          <code>{{ error }}</code>
+          <p>
+            <button
+              class="hover:cursor-pointer rounded-md bg-gray-500 text-white font-bold py-1 px-4"
+              @click="resetError(error)"
+            >
+              Reset
+            </button>
+          </p>
+        </template>
+      </NuxtErrorBoundary>
     </div>
   </div>
 </template>

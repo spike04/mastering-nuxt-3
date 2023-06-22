@@ -2,6 +2,10 @@
 const course = useCourse()
 const route = useRoute()
 
+if (route.params.lessonSlug === '3-typing-component-events') {
+  console.log(route.params.paramthatdoesnotexistwhoopw.capitalizeIsNotAMethod())
+}
+
 const chapter = computed(() => {
   return course.chapters.find(
     (chapter) => chapter.slug === route.params.chapterSlug
@@ -42,6 +46,10 @@ const toggleComplete = () => {
   progress.value[chapter.value.number - 1][lesson.value.number - 1] =
     !isLessonComplete.value
 }
+
+const throwError = () => {
+  throw createError('Could not update')
+}
 </script>
 
 <template>
@@ -70,7 +78,7 @@ const toggleComplete = () => {
     <p>{{ lesson.text }}</p>
     <LessonCompleteButton
       :model-value="isLessonComplete"
-      @update:model-value="toggleComplete"
+      @update:model-value="throwError"
     />
   </div>
 </template>
