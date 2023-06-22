@@ -12,7 +12,7 @@ type Chapter = {
   lessons: Lesson[]
 }
 
-type Lesson = {
+export type Lesson = {
   title: string
   slug: string
   number: number
